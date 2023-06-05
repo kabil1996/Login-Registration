@@ -1,25 +1,43 @@
-import React from "react";
-import SideBar from "../components/Sidebar";
+import react from "react";
+
+// STYLES
 import "../css/sidebar.css";
 
-export default function Home() {
-  const [on, setOn] = React.useState(false);
+// HEADER
+import Navbar from "../components/Header";
 
-  const handleOn = () => {
-    setOn(!on);
-  };
+// ICONS
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLinkedin,
+  faGithub,
+  faYoutube,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import avatar from "../Assets/avatar.jpg";
+
+export default function Home() {
   return (
     <div>
-      <div className="sidebar">
-        <aside className={on ? "to-right" : ""}>
-          <a href="#" onClick={handleOn} className="blink">
-            <h1 className="arrow blinking">
-              <span style={{ fontSize: "40px" }}>&#8680;</span>
-            </h1>
-          </a>
-          <h1>Click Here</h1>
-        </aside>
-        {on && <SideBar openClass="open" />}
+      <Navbar />
+      <div className="profiles">
+        <div className="pro-card">
+          <div className="cover-photo">
+            <img src={avatar} className="profile" alt="Profile" />
+          </div>
+          <h3 className="profile-name">ABC ABC</h3>
+          <p className="about">
+            xxx@gmail.com <br /> Front End Developer
+          </p>
+          <button className="messagebtn">Message</button>
+          <button className="messagebtn">Following</button>
+          <div className="pro-icons">
+            <FontAwesomeIcon icon={faLinkedin} className="fa-brands" />
+            <FontAwesomeIcon icon={faGithub} className="fa-brands" />
+            <FontAwesomeIcon icon={faYoutube} className="fa-brands" />
+            <FontAwesomeIcon icon={faTwitter} className="fa-brands" />
+          </div>
+        </div>
       </div>
     </div>
   );

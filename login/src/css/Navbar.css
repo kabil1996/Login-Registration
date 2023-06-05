@@ -1,0 +1,93 @@
+:root {
+    --navBg: #060b26;
+  }
+  
+  .header .asses-navbar{
+    background-color: var(--navBg);
+    height: 80px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  .header .avatar-icon{
+    margin-right: 20px;
+  }
+  .header .menu-bars {
+    margin-left: 2rem;
+    font-size: 2rem;
+    background: none;
+  }
+  .header nav {
+    background: #333;
+    color: #fff;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    overflow-x: hidden;
+    padding-top: 60px;
+
+  }
+  .header .nav-menu {
+    background-color: var(--navBg);
+    width: 250px;
+    height: 110vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms;
+  }
+  
+  .header .nav-menu.active {
+    left: 0;
+    transition: 350ms;
+    top: -75px;
+  }
+  
+  .header .nav-text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 0 8px 16px;
+    list-style: none;
+    height: 60px;
+  }
+  
+  .header .nav-text a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 18px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+  }
+  
+  .header .nav-text a:hover {
+    background-color: #1a83ff;
+  }
+  
+  .header .nav-menu-items {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .header .navbar-toggle {
+    background-color: var(--navBg);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .header .side-title {
+    margin-left: 16px;
+  }
+  

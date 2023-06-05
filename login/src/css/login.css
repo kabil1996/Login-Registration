@@ -58,3 +58,8 @@ border-radius:10px;
     float: right;
     color: #03a9f4;
 }
+.login-form .text-danger{
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: red;
+}

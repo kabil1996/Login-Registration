@@ -1,12 +1,22 @@
 import React from "react";
+
+// VALIDATION
 import { useFormik } from "formik";
 import * as yup from "yup";
+
+// API
 import axios from "axios";
+
+// NAVIGATION
 import { useNavigate } from "react-router-dom";
+
+// TOAST
 import { toast } from "react-toastify";
+
+// STYLE
 import "../css/login.css";
 
-const Login = (props) => {
+const Login = () => {
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -25,6 +35,7 @@ const Login = (props) => {
     onSubmit: (data) => {
       console.log(data, "data");
       axios
+
         .post("http://localhost:5000/api/login", data)
         .then((res) => {
           localStorage.setItem("auth", JSON.stringify(res.data));
@@ -71,13 +82,7 @@ const Login = (props) => {
           <button type="submit" className="submit-button">
             Submit
           </button>
-          <a
-            className="route_link"
-            href="#"
-            onClick={() => {
-              window.location.href = "register";
-            }}
-          >
+          <a className="route_link" onClick={() => navigate("/")}>
             Register
           </a>
         </form>

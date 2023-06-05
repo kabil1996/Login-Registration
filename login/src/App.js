@@ -5,11 +5,15 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+
+// PAGES
 import Login from "./Auth/login";
 import Dashboard from "./Auth/home";
 import Register from "./Auth/register";
-import Home from "./Auth/Dashboard/index";
-import Aboutus from "./Auth/Dashboard/Aboutus";
+import Home from "./Auth/Pages/index";
+import Aboutus from "./Auth/Pages/Aboutus";
+
+// TOAST MESSAGE
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,7 +22,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Register />} />
         <Route
           path="/dashboard"
           element={<ProtectedRoute component={Dashboard} />}

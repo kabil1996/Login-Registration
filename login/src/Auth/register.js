@@ -1,9 +1,19 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+import React from "react";
+
+// VALIDATION
+import { useFormik } from "formik";
+import * as yup from "yup";
+
+// API
 import axios from "axios";
+
+// NAVIGATION
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+
+// TOAST MESSAGE
+import { toast } from "react-toastify";
+
+// STYLE
 import "../css/register.css";
 
 const Register = (props) => {
@@ -11,24 +21,30 @@ const Register = (props) => {
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
     validationSchema: yup.object({
-      name: yup.string().trim().required('This field is required'),
-      email: yup.string().email('Enter a valid email').trim().required('This field is required'),
-      password: yup.string().trim().required('This field is required'),
-      confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match').required('This field is required'),
+      name: yup.string().trim().required("This field is required"),
+      email: yup
+        .string()
+        .email("Enter a valid email")
+        .trim()
+        .required("This field is required"),
+      password: yup.string().trim().required("This field is required"),
+      confirmPassword: yup
+        .string()
+        .oneOf([yup.ref("password"), null], "Passwords must match")
+        .required("This field is required"),
     }),
     onSubmit: (data) => {
-      console.log(data, 'data');
+      console.log(data, "data");
       toast.success("Registration Done");
-      axios.post('http://localhost:5000/api/register', data)
-        .then(res => {
-          navigate('/login');
-        })
+      axios.post("http://localhost:5000/api/register", data).then((res) => {
+        navigate("/login");
+      });
     },
   });
 
@@ -39,12 +55,12 @@ const Register = (props) => {
   return (
     <div className="container">
       <div className="register-form">
-        <h4 className='heading'>Register</h4>
+        <h4 className="heading">Register</h4>
         <form autoComplete="off" onSubmit={formik.handleSubmit}>
           <div className="inputbox">
             <input
               name="name"
-              placeholder='User Name'
+              placeholder="User Name"
               className="form-control"
               type="text"
               value={formik.values.name}
@@ -58,7 +74,7 @@ const Register = (props) => {
           <div className="inputbox">
             <input
               name="email"
-              placeholder='Email'
+              placeholder="Email"
               className="form-control"
               type="text"
               value={formik.values.email}
@@ -72,7 +88,7 @@ const Register = (props) => {
           <div className="inputbox">
             <input
               name="password"
-              placeholder='Password'
+              placeholder="Password"
               className="form-control"
               type="password"
               value={formik.values.password}
@@ -86,25 +102,32 @@ const Register = (props) => {
           <div className="inputbox">
             <input
               name="confirmPassword"
-              placeholder='Confirm Password'
+              placeholder="Confirm Password"
               className="form-control"
               type="password"
               value={formik.values.confirmPassword}
               onChange={formik.handleChange}
               onBlur={handleBlur}
             />
-            {formik.touched.confirmPassword && formik.errors.confirmPassword && (
-              <div className="text-danger">{formik.errors.confirmPassword}</div>
-            )}
+            {formik.touched.confirmPassword &&
+              formik.errors.confirmPassword && (
+                <div className="text-danger">
+                  {formik.errors.confirmPassword}
+                </div>
+              )}
           </div>
-          <button type="submit" className="submit-button">Submit</button>
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
           <a
-            href='#'
-            className='route_link'
+            href="#"
+            className="route_link"
             onClick={() => {
               window.location.href = "login";
             }}
-          >Login</a>
+          >
+            Login
+          </a>
         </form>
       </div>
     </div>
