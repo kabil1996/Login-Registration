@@ -22,7 +22,7 @@ app.listen(5000, () => {
   console.log('Server is running on port 5000');
 });
 mongoose
-  .connect('mongodb://localhost:27017/login', options)
+  .connect('mongodb+srv://gowtham:gowtham123@cluster0.090imrh.mongodb.net/login')
   .then(() => {
     console.log('Connected to MongoDB');
   })
